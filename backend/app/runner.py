@@ -12,7 +12,7 @@ def validate_target(base_url: str, authorized: bool) -> str:
     parts = urlsplit(base_url)
     normalized = base_url.rstrip("/")
     allowed = {origin.strip().rstrip("/") for origin in os.getenv(
-        "ALLOWED_TEST_ORIGINS", "http://127.0.0.1:8001"
+        "ALLOWED_TEST_ORIGINS", "http://127.0.0.1:8101"
     ).split(",") if origin.strip()}
     # MVP strict policy: never permit other interfaces, credentials, query params, fragments or URL paths.
     if parts.scheme != "http" or parts.hostname != "127.0.0.1" or parts.username or parts.password or parts.path not in ("", "/") or parts.query or parts.fragment or normalized not in allowed:

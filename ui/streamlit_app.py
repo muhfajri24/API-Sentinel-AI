@@ -16,7 +16,8 @@ if mode == "fixture":
 else:
     st.info("META LIVE MODE configured — verify real API responses before claiming model usage.")
 
-controller = os.getenv("CONTROLLER_URL", "http://127.0.0.1:8000")
+controller = os.getenv("CONTROLLER_URL", "http://127.0.0.1:8100")
+demo_api = os.getenv("DEMO_API_URL", "http://127.0.0.1:8101")
 def_spec = (Path(__file__).resolve().parents[1] / "samples" / "withdraw-openapi.json").read_text(encoding="utf-8")
 rule = st.text_area("Business rule", "Withdrawals exceeding the available balance must be rejected with HTTP 422 and approved=false.")
 spec_text = st.text_area("OpenAPI JSON", def_spec, height=180)
@@ -42,7 +43,7 @@ if plan:
     authorized = st.checkbox("I own/control the local test environment and authorize these requests.")
     if st.button("2. Execute local tests", disabled=not authorized):
         try:
-            response = httpx.post(controller + "/api/execute", json={"base_url": "http://127.0.0.1:8001", "authorized": True, "cases": plan["cases"]}, timeout=40)
+            response = httpx.post(controller + "/api/execute", json={"base_url": demo_api, "authorized": True, "cases": plan["cases"]}, timeout=40)
             response.raise_for_status()
             st.session_state["results"] = response.json()["results"]
         except Exception as exc:

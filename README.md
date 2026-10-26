@@ -16,27 +16,39 @@
 py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
-Copy-Item .env.example .env
+if (-not (Test-Path .env)) { Copy-Item .env.example .env }
 python -m pytest -q
 ```
 
 If Windows `py -3.11` isn't available, use `python -m venv .venv` with Python 3.11+.
 
-Three terminals (with venv activated in each):
+Set these non-secret values in your local `.env` (preserve existing model settings and keys):
+
+```dotenv
+CONTROLLER_URL=http://127.0.0.1:8100
+DEMO_API_URL=http://127.0.0.1:8101
+ALLOWED_TEST_ORIGINS=http://127.0.0.1:8101
+```
+
+The controller and UI load `.env`; existing shell environment variables take precedence.
+Keep `DEMO_API_URL` and `ALLOWED_TEST_ORIGINS` aligned. Service bind ports are set
+by the launch commands below; URL variables do not change the bind ports.
+
+Three terminals (from the repository root, with venv activated in each):
 
 ```powershell
-python -m uvicorn backend.app.demo_api:app --host 127.0.0.1 --port 8001
+python -m uvicorn backend.app.demo_api:app --host 127.0.0.1 --port 8101
 ```
 
 ```powershell
-python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
+python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8100
 ```
 
 ```powershell
-python -m streamlit run ui/streamlit_app.py
+python -m streamlit run ui/streamlit_app.py --server.address 127.0.0.1 --server.port 8502
 ```
 
-Open Streamlit's displayed localhost URL (usually http://localhost:8501).
+Open http://127.0.0.1:8502.
 
 ## Model modes
 
@@ -46,15 +58,15 @@ Open Streamlit's displayed localhost URL (usually http://localhost:8501).
 
 ## First execution
 
-1. Confirm `/health` is healthy at http://127.0.0.1:8000/health.
+1. Confirm `/health` is healthy at http://127.0.0.1:8100/health.
 2. Review fixture source label and demo business rule in UI.
-3. `Generate` and `Execute` against `http://127.0.0.1:8001` after checking the consent box.
+3. `Generate` and `Execute` against `http://127.0.0.1:8101` after checking the consent box.
 4. The demo is **intentionally buggy**: withdrawing 150 from balance 100 is approved, generating a reproducible FAIL for the overdraft rule. It is a simulated incident, not real banking software.
 5. Switch to live Meta mode only after checking API access and limitations.
 
 ## Important guardrails
 
-- This starter **only** targets `http://127.0.0.1:8001`; no internet scanning, no use of real payments.
+- This starter **only** targets `http://127.0.0.1:8101`; no internet scanning, no use of real payments.
 - Request count is bounded; redirects aren't followed; tests require explicit authorization.
 - The minimal proof checker compares status code and selected JSON fields; does not certify business correctness broadly.
 - The fixture is a development aid only. If Meta inference is unavailable, the UI must report that honestly.

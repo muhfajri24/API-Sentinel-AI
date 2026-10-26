@@ -26,6 +26,21 @@ Read before edits, in order:
 4. Report changed files, exact test results, unverified behaviors, and next task.
 
 ## Required report format
+
+After every user-assigned task, including verification-only or incomplete tasks,
+write a concise Bahasa Indonesia report in the final chat response and save it
+to `docs/TASK_<ID>_REPORT.md`. For work without a task ID, use
+`docs/WORK_<YYYY-MM-DD>_<short-slug>_REPORT.md`. Append a dated entry when the
+report already exists; preserve earlier evidence and results.
+
+Include the branch, commit/staging status, files changed by the current task,
+behavior implemented or verified, exact test commands and observed results,
+acceptance criteria marked PASS / FAIL / NOT RUN, Meta inference status,
+remaining issues, and next recommended task. Distinguish pre-existing changes
+from current-task changes. Never include secrets or claim unexecuted checks.
+Report failures and blockers honestly. Reporting does not authorize starting
+the next task, committing, pushing, merging, or deploying.
+
 ```
 Task:
 Files changed:

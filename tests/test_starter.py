@@ -44,13 +44,19 @@ def test_planner_rejects_unlisted_path():
 
 def test_target_requires_authorization():
     with pytest.raises(HTTPException):
-        validate_target("http://127.0.0.1:8001", False)
+        validate_target("http://127.0.0.1:8101", False)
 
 
-@pytest.mark.parametrize("target", ["http://example.com", "http://localhost:8001", "http://127.0.0.1:9999", "http://127.0.0.1:8001/secret", "http://127.0.0.1:8001@evil.com"])
-def test_target_deny_outside_allowlist(target):
+@pytest.mark.parametrize("target", ["http://example.com", "http://localhost:8101", "http://127.0.0.1:9999", "http://127.0.0.1:8101/secret", "http://127.0.0.1:8101@evil.com", "http://127.0.0.1:8001"])
+def test_target_deny_outside_allowlist(target, monkeypatch):
+    monkeypatch.setenv("ALLOWED_TEST_ORIGINS", "http://127.0.0.1:8101")
     with pytest.raises(HTTPException):
         validate_target(target, True)
+
+
+def test_default_demo_origin_is_allowed(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.delenv("ALLOWED_TEST_ORIGINS", raising=False)
+    assert validate_target("http://127.0.0.1:8101", True) == "http://127.0.0.1:8101"
 
 
 def test_json_subset_checker():
