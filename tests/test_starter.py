@@ -1,3 +1,7 @@
+import json
+from copy import deepcopy
+from pathlib import Path
+
 import pytest
 from fastapi import HTTPException
 from backend.app.openapi_parser import parse_openapi, validate_plan_against_spec
@@ -9,10 +13,7 @@ from backend.app.demo_api import app as demo_app
 from backend.app.main import app as controller_app
 
 
-SPEC = {
-    "openapi": "3.1.0", "info": {"title": "Demo", "version": "1"},
-    "paths": {"/withdraw": {"post": {"responses": {"200": {}, "422": {}}}}},
-}
+SPEC = json.loads((Path(__file__).resolve().parents[1] / "samples" / "withdraw-openapi.json").read_text(encoding="utf-8"))
 RULE = "Overdraft amounts must be rejected with 422 and approved=false"
 
 
@@ -35,8 +36,10 @@ def test_fixture_is_not_labelled_meta(monkeypatch):
 
 def test_planner_rejects_unlisted_path():
     plan = fixture_plan(RULE)
-    with pytest.raises(HTTPException):
-        validate_plan_against_spec(plan, {"openapi": "3.0.0", "info": {"title": "x"}, "paths": {"/other": {"post": {}}}})
+    spec = deepcopy(SPEC)
+    spec["paths"]["/other"] = spec["paths"].pop("/withdraw")
+    with pytest.raises(HTTPException, match="undeclared operation"):
+        validate_plan_against_spec(plan, spec)
 
 
 def test_target_requires_authorization():
