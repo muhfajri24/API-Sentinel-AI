@@ -1,0 +1,49 @@
+{
+  "checked_at": "2026-11-10T19:51:45.060Z",
+  "status": "PASS",
+  "meta_inference": "NOT_RUN",
+  "steps": [
+    {
+      "command": "python -m scripts.doctor --output evidence/setup_check.json",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "command": "python -m pip check",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "command": "python -m ruff check backend ui scripts tests",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "command": "python -m pytest -q",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "command": "python -m scripts.run_demo --check",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "command": "python -m scripts.run_demo --check --variant corrected",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "command": "python -m scripts.evaluate",
+      "exit_code": 0,
+      "status": "PASS"
+    }
+  ],
+  "reconciliation": {
+    "status": "PASS",
+    "raw_runs": 12,
+    "actual_requests": 18,
+    "meta_inference": "NOT_RUN"
+  },
+  "finished_at": "2026-11-10T19:51:55.691Z"
+}

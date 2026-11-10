@@ -63,7 +63,7 @@ def test_complete_review_consent_execution_and_export_flow(monkeypatch):
         "ERROR": "0",
         "NOT_RUN": "0",
     }
-    assert len(at.get("download_button")) == 1
+    assert len(at.get("download_button")) == 2
     widget(at.text_area, "Business rule").set_value("A different unsupported rule").run()
     assert "plan" not in at.session_state and "receipt" not in at.session_state
     assert not any(b.label == "2. Execute local tests" for b in at.button)

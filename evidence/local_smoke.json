@@ -1,6 +1,7 @@
 {
-  "checked_at": "2026-11-10T07:57:07.664Z",
+  "checked_at": "2026-11-10T19:51:50.836Z",
   "status": "PASS",
+  "target_variant": "buggy",
   "transport": "actual loopback HTTP; UI widget flow via Streamlit AppTest",
   "meta_inference": "NOT RUN",
   "controller_health": {
@@ -9,12 +10,12 @@
   },
   "ui_http_status": 200,
   "receipt": {
-    "run_id": "run-86b1e19caa5545978c6f8f4e30b00fd9",
+    "run_id": "run-c9a5c3888bad43ff97921c924a92c494",
     "source": "fixture",
     "model": "offline-fixture-not-AI",
-    "plan_id": "plan-57cd6ccd4a434133b7bff04707eb1e77",
-    "started_at": "2026-11-10T07:57:07.612Z",
-    "finished_at": "2026-11-10T07:57:07.636Z",
+    "plan_id": "plan-23acd0f5f342450d9f8d3a07609cb1b2",
+    "started_at": "2026-11-10T19:51:50.800Z",
+    "finished_at": "2026-11-10T19:51:50.818Z",
     "results": [
       {
         "case_id": "happy-withdraw",
@@ -32,9 +33,9 @@
         "rule_reference": "#/paths/~1withdraw/post/responses/200",
         "expectation_basis": "openapi",
         "severity": "info",
-        "started_at": "2026-11-10T07:57:07.628Z",
-        "finished_at": "2026-11-10T07:57:07.633Z",
-        "latency_ms": 5.254,
+        "started_at": "2026-11-10T19:51:50.813Z",
+        "finished_at": "2026-11-10T19:51:50.816Z",
+        "latency_ms": 3.422,
         "reproduction": {
           "method": "POST",
           "url": "http://127.0.0.1:8101/withdraw",
@@ -60,9 +61,9 @@
         "rule_reference": "Withdrawals exceeding the available balance must be rejected with HTTP 422 and approved=false.",
         "expectation_basis": "business_rule",
         "severity": "high",
-        "started_at": "2026-11-10T07:57:07.633Z",
-        "finished_at": "2026-11-10T07:57:07.635Z",
-        "latency_ms": 2.163,
+        "started_at": "2026-11-10T19:51:50.816Z",
+        "finished_at": "2026-11-10T19:51:50.817Z",
+        "latency_ms": 1.41,
         "reproduction": {
           "method": "POST",
           "url": "http://127.0.0.1:8101/withdraw",

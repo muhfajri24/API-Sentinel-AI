@@ -9,7 +9,7 @@ import httpx
 from .local_services import local_services, ROOT
 
 
-def check():
+def check(variant="buggy"):
     from streamlit.testing.v1 import AppTest
     from backend.app.models import utc_now
 
@@ -34,13 +34,16 @@ def check():
     widget(at.button, "2. Execute local tests").click().run(timeout=20)
     assert not at.exception
     receipt = at.session_state["receipt"]
-    assert [r["status"] for r in receipt["results"]] == ["PASS", "FAIL"]
+    assert [r["status"] for r in receipt["results"]] == (
+        ["PASS", "FAIL"] if variant == "buggy" else ["PASS", "PASS"]
+    )
     with httpx.Client(timeout=3, trust_env=False) as client:
         health = client.get("http://127.0.0.1:8100/health").json()
         ui_status = client.get("http://127.0.0.1:8501/").status_code
     result = {
         "checked_at": utc_now(),
         "status": "PASS",
+        "target_variant": variant,
         "transport": "actual loopback HTTP; UI widget flow via Streamlit AppTest",
         "meta_inference": "NOT RUN",
         "controller_health": health,
@@ -48,7 +51,10 @@ def check():
         "receipt": receipt,
     }
     (ROOT / "evidence").mkdir(exist_ok=True)
-    (ROOT / "evidence/local_smoke.json").write_text(json.dumps(result, indent=2) + "\n")
+    (
+        ROOT
+        / ("evidence/local_smoke.json" if variant == "buggy" else "evidence/corrected_smoke.json")
+    ).write_text(json.dumps(result, indent=2) + "\n")
     print(
         json.dumps(
             {
@@ -56,7 +62,9 @@ def check():
                 "verdicts": [r["status"] for r in receipt["results"]],
                 "source": receipt["source"],
                 "meta_inference": "NOT RUN",
-                "evidence": "evidence/local_smoke.json",
+                "evidence": "evidence/local_smoke.json"
+                if variant == "buggy"
+                else "evidence/corrected_smoke.json",
             },
             indent=2,
         )
@@ -66,13 +74,14 @@ def check():
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
+    parser.add_argument("--variant", choices=("buggy", "corrected"), default="buggy")
     args = parser.parse_args()
-    with local_services(controller=True, ui=True) as processes:
+    with local_services(variant=args.variant, controller=True, ui=True) as processes:
         if args.check:
-            check()
+            check(args.variant)
             return
         print(
-            "Fixture demo: http://127.0.0.1:8501 | controller 8100 | synthetic target 8101. Ctrl+C stops owned services.",
+            f"Fixture demo ({args.variant} target): http://127.0.0.1:8501 | controller 8100 | synthetic target 8101. Ctrl+C stops owned services.",
             flush=True,
         )
         while True:

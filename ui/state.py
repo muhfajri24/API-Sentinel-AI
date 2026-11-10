@@ -4,9 +4,9 @@ import hashlib
 import json
 
 
-def input_fingerprint(spec_text, rule, controller, mode):
+def input_fingerprint(spec_text, rule, controller, mode, target=""):
     return hashlib.sha256(
-        json.dumps([spec_text, rule, controller, mode], ensure_ascii=False).encode()
+        json.dumps([spec_text, rule, controller, mode, target], ensure_ascii=False).encode()
     ).hexdigest()
 
 

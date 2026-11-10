@@ -1,0 +1,72 @@
+{
+  "checked_at": "2026-11-10T19:51:45.340Z",
+  "status": "PASS",
+  "meta_inference": "NOT_RUN",
+  "checks": [
+    {
+      "name": "python",
+      "status": "PASS",
+      "detail": "3.12.14"
+    },
+    {
+      "name": "fastapi",
+      "status": "PASS",
+      "detail": "0.162.2"
+    },
+    {
+      "name": "uvicorn",
+      "status": "PASS",
+      "detail": "0.54.0"
+    },
+    {
+      "name": "pydantic",
+      "status": "PASS",
+      "detail": "2.14.3"
+    },
+    {
+      "name": "httpx",
+      "status": "PASS",
+      "detail": "0.28.1"
+    },
+    {
+      "name": "python-dotenv",
+      "status": "PASS",
+      "detail": "1.2.4"
+    },
+    {
+      "name": "openai",
+      "status": "PASS",
+      "detail": "2.54.0"
+    },
+    {
+      "name": "streamlit",
+      "status": "PASS",
+      "detail": "1.67.0"
+    },
+    {
+      "name": "jsonschema",
+      "status": "PASS",
+      "detail": "4.26.0"
+    },
+    {
+      "name": "port_8100",
+      "status": "PASS",
+      "detail": "Available"
+    },
+    {
+      "name": "port_8101",
+      "status": "PASS",
+      "detail": "Available"
+    },
+    {
+      "name": "port_8501",
+      "status": "PASS",
+      "detail": "Available"
+    },
+    {
+      "name": "fixture_plan",
+      "status": "PASS",
+      "detail": "2 validated predefined cases; no inference"
+    }
+  ]
+}

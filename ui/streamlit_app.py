@@ -7,6 +7,7 @@ import streamlit as st
 from dotenv import load_dotenv
 from backend.app.generator import DEFAULT_RULE
 from backend.app.models import GenerateResponse, ExecuteResponse
+from ui.report import render_report
 from ui.client import request_api, ControllerError
 from ui.state import input_fingerprint, synchronize_inputs, clear_execution
 
@@ -42,7 +43,7 @@ with left:
     )
     spec_text = st.text_area("OpenAPI JSON", def_spec, height=220, key="spec_text")
     st.caption("Changing the rule or specification discards the old plan, consent and results.")
-synchronize_inputs(st.session_state, input_fingerprint(spec_text, rule, controller, mode))
+synchronize_inputs(st.session_state, input_fingerprint(spec_text, rule, controller, mode, demo_api))
 try:
     spec = json.loads(spec_text)
     if not isinstance(spec, dict):
@@ -151,17 +152,47 @@ if receipt:
     columns = st.columns(4)
     for column, status in zip(columns, ("PASS", "FAIL", "ERROR", "NOT_RUN")):
         column.metric(status, sum(r["status"] == status for r in receipt["results"]))
+    failures = [r for r in receipt["results"] if r["status"] == "FAIL"]
+    errors = [r for r in receipt["results"] if r["status"] in {"ERROR", "NOT_RUN"}]
+    if failures:
+        st.error(
+            f"{len(failures)} reviewed expectation(s) did not match the API response. Inspect the evidence below."
+        )
+    elif errors:
+        st.warning("This run is incomplete. Resolve execution errors before drawing a conclusion.")
+    else:
+        st.success(
+            "All reviewed expectations matched in this run. This does not prove every API behavior is correct."
+        )
     for result in receipt["results"]:
         with st.expander(
             f"{result['status']} — {result['case_id']}", expanded=result["status"] != "PASS"
         ):
             st.write(result["reason"])
+            expected, observed = st.columns(2)
+            with expected:
+                st.markdown(f"**Expected · HTTP {result['expected_status']}**")
+                st.json(result["expected_json_subset"])
+            with observed:
+                st.markdown(
+                    f"**Observed · HTTP {result['actual_status'] if result['actual_status'] is not None else 'unavailable'}**"
+                )
+                st.json(result["actual_body"])
+            st.caption(
+                f"Basis: {result['expectation_basis']} · Proposed severity: {result['severity']} · Latency: {result['latency_ms']} ms"
+            )
             st.json(result)
     st.download_button(
         "Download evidence (JSON)",
         json.dumps(receipt, indent=2),
         file_name=f"{receipt['run_id']}.json",
         mime="application/json",
+    )
+    st.download_button(
+        "Download standalone report (HTML)",
+        render_report(receipt),
+        file_name=f"{receipt['run_id']}.html",
+        mime="text/html",
     )
     st.caption(
         "FAIL means a reviewed expectation differed from the observed response. It is not independent proof that an arbitrary rule or AI oracle is correct."

@@ -30,11 +30,18 @@ def request_api(controller: str, path: str, payload: dict | None = None) -> dict
         raise ControllerError("Configure a loopback HTTP controller address.")
     try:
         with httpx.Client(timeout=40, trust_env=False, follow_redirects=False) as client:
-            response = (
-                client.get(controller.rstrip("/") + path)
-                if payload is None
-                else client.post(controller.rstrip("/") + path, json=payload)
-            )
+            # Enforce the cap while streaming, before an unbounded body is buffered.
+            with client.stream(
+                "GET" if payload is None else "POST",
+                controller.rstrip("/") + path,
+                **({} if payload is None else {"json": payload}),
+            ) as stream:
+                body = bytearray()
+                for chunk in stream.iter_bytes(chunk_size=16384):
+                    body.extend(chunk)
+                    if len(body) > 262144:
+                        raise ControllerError("Controller response exceeded the display limit.")
+                response = httpx.Response(stream.status_code, content=bytes(body))
             if not response.is_success:
                 messages = {
                     403: "Review and authorize the local test plan before execution.",

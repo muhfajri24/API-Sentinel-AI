@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T07:57:20.616Z",
+  "generated_at": "2026-11-10T19:51:55.628Z",
   "transport": "actual loopback HTTP",
   "scope": "illustrative single seeded overdraft bug; corrected control; not a representative benchmark",
   "repeats_per_condition": 3,
@@ -17,7 +17,7 @@
       },
       "unique_seeded_faults_found": 0,
       "control_false_positive_count": 0,
-      "mean_request_latency_ms": 4.845,
+      "mean_request_latency_ms": 4.012,
       "model_cost": null
     },
     "fixture": {
@@ -32,7 +32,7 @@
       },
       "unique_seeded_faults_found": 1,
       "control_false_positive_count": 0,
-      "mean_request_latency_ms": 1.81,
+      "mean_request_latency_ms": 1.832,
       "model_cost": null
     },
     "meta_live": {
@@ -45,12 +45,12 @@
       "condition": "buggy",
       "repetition": 1,
       "receipt": {
-        "run_id": "run-cd669a3fe92d45b8945bbfeae010a0fa",
+        "run_id": "run-2d77979544a54fd99f637510ecbb63d3",
         "source": "baseline",
         "model": "handwritten-positive-only",
         "plan_id": null,
-        "started_at": "2026-11-10T07:57:19.800Z",
-        "finished_at": "2026-11-10T07:57:19.819Z",
+        "started_at": "2026-11-10T19:51:54.917Z",
+        "finished_at": "2026-11-10T19:51:54.933Z",
         "results": [
           {
             "case_id": "happy-withdraw",
@@ -68,9 +68,9 @@
             "rule_reference": "#/paths/~1withdraw/post/responses/200",
             "expectation_basis": "openapi",
             "severity": "info",
-            "started_at": "2026-11-10T07:57:19.805Z",
-            "finished_at": "2026-11-10T07:57:19.819Z",
-            "latency_ms": 13.951,
+            "started_at": "2026-11-10T19:51:54.922Z",
+            "finished_at": "2026-11-10T19:51:54.933Z",
+            "latency_ms": 11.372,
             "reproduction": {
               "method": "POST",
               "url": "http://127.0.0.1:8101/withdraw",
@@ -87,12 +87,12 @@
       "condition": "buggy",
       "repetition": 2,
       "receipt": {
-        "run_id": "run-ff880045c8f24eb4be46e671cc6c244f",
+        "run_id": "run-3bbd8a73bc5843ddaa45203603200828",
         "source": "baseline",
         "model": "handwritten-positive-only",
         "plan_id": null,
-        "started_at": "2026-11-10T07:57:19.820Z",
-        "finished_at": "2026-11-10T07:57:19.827Z",
+        "started_at": "2026-11-10T19:51:54.934Z",
+        "finished_at": "2026-11-10T19:51:54.940Z",
         "results": [
           {
             "case_id": "happy-withdraw",
@@ -110,9 +110,9 @@
             "rule_reference": "#/paths/~1withdraw/post/responses/200",
             "expectation_basis": "openapi",
             "severity": "info",
-            "started_at": "2026-11-10T07:57:19.825Z",
-            "finished_at": "2026-11-10T07:57:19.827Z",
-            "latency_ms": 2.344,
+            "started_at": "2026-11-10T19:51:54.938Z",
+            "finished_at": "2026-11-10T19:51:54.940Z",
+            "latency_ms": 1.971,
             "reproduction": {
               "method": "POST",
               "url": "http://127.0.0.1:8101/withdraw",
@@ -129,12 +129,12 @@
       "condition": "buggy",
       "repetition": 3,
       "receipt": {
-        "run_id": "run-642675bbe5594036a94da889396bd0a4",
+        "run_id": "run-77ba864d75ce4b7c9c00e8eea36732c3",
         "source": "baseline",
         "model": "handwritten-positive-only",
         "plan_id": null,
-        "started_at": "2026-11-10T07:57:19.828Z",
-        "finished_at": "2026-11-10T07:57:19.836Z",
+        "started_at": "2026-11-10T19:51:54.940Z",
+        "finished_at": "2026-11-10T19:51:54.949Z",
         "results": [
           {
             "case_id": "happy-withdraw",
@@ -152,9 +152,9 @@
             "rule_reference": "#/paths/~1withdraw/post/responses/200",
             "expectation_basis": "openapi",
             "severity": "info",
-            "started_at": "2026-11-10T07:57:19.834Z",
-            "finished_at": "2026-11-10T07:57:19.836Z",
-            "latency_ms": 2.121,
+            "started_at": "2026-11-10T19:51:54.945Z",
+            "finished_at": "2026-11-10T19:51:54.949Z",
+            "latency_ms": 3.538,
             "reproduction": {
               "method": "POST",
               "url": "http://127.0.0.1:8101/withdraw",
@@ -171,12 +171,12 @@
       "condition": "buggy",
       "repetition": 1,
       "receipt": {
-        "run_id": "run-8f0a63a9c6614ddd80bbdf8500f1f8a7",
+        "run_id": "run-86503094dbdd4dbc81ef6ccafb630f7a",
         "source": "fixture",
         "model": "offline-fixture-not-AI",
         "plan_id": null,
-        "started_at": "2026-11-10T07:57:19.836Z",
-        "finished_at": "2026-11-10T07:57:19.847Z",
+        "started_at": "2026-11-10T19:51:54.949Z",
+        "finished_at": "2026-11-10T19:51:54.956Z",
         "results": [
           {
             "case_id": "happy-withdraw",
@@ -194,9 +194,9 @@
             "rule_reference": "#/paths/~1withdraw/post/responses/200",
             "expectation_basis": "openapi",
             "severity": "info",
-            "started_at": "2026-11-10T07:57:19.841Z",
-            "finished_at": "2026-11-10T07:57:19.846Z",
-            "latency_ms": 4.547,
+            "started_at": "2026-11-10T19:51:54.953Z",
+            "finished_at": "2026-11-10T19:51:54.955Z",
+            "latency_ms": 1.939,
             "reproduction": {
               "method": "POST",
               "url": "http://127.0.0.1:8101/withdraw",
@@ -222,9 +222,9 @@
             "rule_reference": "Withdrawals exceeding the available balance must be rejected with HTTP 422 and approved=false.",
             "expectation_basis": "business_rule",
             "severity": "high",
-            "started_at": "2026-11-10T07:57:19.846Z",
-            "finished_at": "2026-11-10T07:57:19.847Z",
-            "latency_ms": 1.15,
+            "started_at": "2026-11-10T19:51:54.955Z",
+            "finished_at": "2026-11-10T19:51:54.956Z",
+            "latency_ms": 1.177,
             "reproduction": {
               "method": "POST",
               "url": "http://127.0.0.1:8101/withdraw",
@@ -241,12 +241,12 @@
       "condition": "buggy",
       "repetition": 2,
       "receipt": {
-        "run_id": "run-27e8d797b0d14e09b7a2f4c627083b02",
+        "run_id": "run-20cba615da044f469eefdf955707824e",
         "source": "fixture",
         "model": "offline-fixture-not-AI",
         "plan_id": null,
-        "started_at": "2026-11-10T07:57:19.847Z",
-        "finished_at": "2026-11-10T07:57:19.855Z",
+        "started_at": "2026-11-10T19:51:54.956Z",
+        "finished_at": "2026-11-10T19:51:54.964Z",
         "results": [
           {
             "case_id": "happy-withdraw",
@@ -264,9 +264,9 @@
             "rule_reference": "#/paths/~1withdraw/post/responses/200",
             "expectation_basis": "openapi",
             "severity": "info",
-            "started_at": "2026-11-10T07:57:19.852Z",
-            "finished_at": "2026-11-10T07:57:19.854Z",
-            "latency_ms": 1.858,
+            "started_at": "2026-11-10T19:51:54.961Z",
+            "finished_at": "2026-11-10T19:51:54.962Z",
+            "latency_ms": 1.65,
             "reproduction": {
               "method": "POST",
               "url": "http://127.0.0.1:8101/withdraw",
@@ -292,9 +292,9 @@
             "rule_reference": "Withdrawals exceeding the available balance must be rejected with HTTP 422 and approved=false.",
             "expectation_basis": "business_rule",
             "severity": "high",
-            "started_at": "2026-11-10T07:57:19.854Z",
-            "finished_at": "2026-11-10T07:57:19.855Z",
-            "latency_ms": 1.004,
+            "started_at": "2026-11-10T19:51:54.962Z",
+            "finished_at": "2026-11-10T19:51:54.964Z",
+            "latency_ms": 1.292,
             "reproduction": {
               "method": "POST",
               "url": "http://127.0.0.1:8101/withdraw",
@@ -311,12 +311,12 @@
       "condition": "buggy",
       "repetition": 3,
       "receipt": {
-        "run_id": "run-5f68984f4eeb4107a49886685698d51a",
+        "run_id": "run-19de39c8407d44fdb08a68d85817c43d",
         "source": "fixture",
         "model": "offline-fixture-not-AI",
         "plan_id": null,
-        "started_at": "2026-11-10T07:57:19.856Z",
-        "finished_at": "2026-11-10T07:57:19.863Z",
+        "started_at": "2026-11-10T19:51:54.964Z",
+        "finished_at": "2026-11-10T19:51:54.972Z",
         "results": [
           {
             "case_id": "happy-withdraw",
@@ -334,9 +334,9 @@
             "rule_reference": "#/paths/~1withdraw/post/responses/200",
             "expectation_basis": "openapi",
             "severity": "info",
-            "started_at": "2026-11-10T07:57:19.860Z",
-            "finished_at": "2026-11-10T07:57:19.862Z",
-            "latency_ms": 2.23,
+            "started_at": "2026-11-10T19:51:54.969Z",
+            "finished_at": "2026-11-10T19:51:54.970Z",
+            "latency_ms": 1.828,
             "reproduction": {
               "method": "POST",
               "url": "http://127.0.0.1:8101/withdraw",
@@ -362,9 +362,9 @@
             "rule_reference": "Withdrawals exceeding the available balance must be rejected with HTTP 422 and approved=false.",
             "expectation_basis": "business_rule",
             "severity": "high",
-            "started_at": "2026-11-10T07:57:19.862Z",
-            "finished_at": "2026-11-10T07:57:19.863Z",
-            "latency_ms": 1.092,
+            "started_at": "2026-11-10T19:51:54.971Z",
+            "finished_at": "2026-11-10T19:51:54.972Z",
+            "latency_ms": 1.141,
             "reproduction": {
               "method": "POST",
               "url": "http://127.0.0.1:8101/withdraw",
@@ -381,12 +381,12 @@
       "condition": "corrected",
       "repetition": 1,
       "receipt": {
-        "run_id": "run-02a8b23ffa674c4ca4f1d3af142976fb",
+        "run_id": "run-8b9241d420aa4c13b81698e1bb124cb3",
         "source": "baseline",
         "model": "handwritten-positive-only",
         "plan_id": null,
-        "started_at": "2026-11-10T07:57:20.348Z",
-        "finished_at": "2026-11-10T07:57:20.360Z",
+        "started_at": "2026-11-10T19:51:55.463Z",
+        "finished_at": "2026-11-10T19:51:55.471Z",
         "results": [
           {
             "case_id": "happy-withdraw",
@@ -404,9 +404,9 @@
             "rule_reference": "#/paths/~1withdraw/post/responses/200",
             "expectation_basis": "openapi",
             "severity": "info",
-            "started_at": "2026-11-10T07:57:20.353Z",
-            "finished_at": "2026-11-10T07:57:20.360Z",
-            "latency_ms": 6.123,
+            "started_at": "2026-11-10T19:51:55.468Z",
+            "finished_at": "2026-11-10T19:51:55.471Z",
+            "latency_ms": 2.893,
             "reproduction": {
               "method": "POST",
               "url": "http://127.0.0.1:8101/withdraw",
@@ -423,12 +423,12 @@
       "condition": "corrected",
       "repetition": 2,
       "receipt": {
-        "run_id": "run-f064194160c244e1831605e481b59912",
+        "run_id": "run-834c078e9f9347bb854769abaafde1a6",
         "source": "baseline",
         "model": "handwritten-positive-only",
         "plan_id": null,
-        "started_at": "2026-11-10T07:57:20.360Z",
-        "finished_at": "2026-11-10T07:57:20.368Z",
+        "started_at": "2026-11-10T19:51:55.472Z",
+        "finished_at": "2026-11-10T19:51:55.478Z",
         "results": [
           {
             "case_id": "happy-withdraw",
@@ -446,9 +446,9 @@
             "rule_reference": "#/paths/~1withdraw/post/responses/200",
             "expectation_basis": "openapi",
             "severity": "info",
-            "started_at": "2026-11-10T07:57:20.365Z",
-            "finished_at": "2026-11-10T07:57:20.368Z",
-            "latency_ms": 2.803,
+            "started_at": "2026-11-10T19:51:55.476Z",
+            "finished_at": "2026-11-10T19:51:55.478Z",
+            "latency_ms": 1.767,
             "reproduction": {
               "method": "POST",
               "url": "http://127.0.0.1:8101/withdraw",
@@ -465,12 +465,12 @@
       "condition": "corrected",
       "repetition": 3,
       "receipt": {
-        "run_id": "run-5e5ccca5f3394ca7a806898705ef9ee0",
+        "run_id": "run-83af8d0baaa0400d8dc9f4ef7e76c9a1",
         "source": "baseline",
         "model": "handwritten-positive-only",
         "plan_id": null,
-        "started_at": "2026-11-10T07:57:20.369Z",
-        "finished_at": "2026-11-10T07:57:20.375Z",
+        "started_at": "2026-11-10T19:51:55.479Z",
+        "finished_at": "2026-11-10T19:51:55.486Z",
         "results": [
           {
             "case_id": "happy-withdraw",
@@ -488,9 +488,9 @@
             "rule_reference": "#/paths/~1withdraw/post/responses/200",
             "expectation_basis": "openapi",
             "severity": "info",
-            "started_at": "2026-11-10T07:57:20.374Z",
-            "finished_at": "2026-11-10T07:57:20.375Z",
-            "latency_ms": 1.726,
+            "started_at": "2026-11-10T19:51:55.483Z",
+            "finished_at": "2026-11-10T19:51:55.486Z",
+            "latency_ms": 2.529,
             "reproduction": {
               "method": "POST",
               "url": "http://127.0.0.1:8101/withdraw",
@@ -507,12 +507,12 @@
       "condition": "corrected",
       "repetition": 1,
       "receipt": {
-        "run_id": "run-f81638fcd84f4dc9a3bed016af1c4f76",
+        "run_id": "run-2c3be3c3f70540a2b797309a063d3656",
         "source": "fixture",
         "model": "offline-fixture-not-AI",
         "plan_id": null,
-        "started_at": "2026-11-10T07:57:20.376Z",
-        "finished_at": "2026-11-10T07:57:20.385Z",
+        "started_at": "2026-11-10T19:51:55.486Z",
+        "finished_at": "2026-11-10T19:51:55.493Z",
         "results": [
           {
             "case_id": "happy-withdraw",
@@ -530,9 +530,9 @@
             "rule_reference": "#/paths/~1withdraw/post/responses/200",
             "expectation_basis": "openapi",
             "severity": "info",
-            "started_at": "2026-11-10T07:57:20.381Z",
-            "finished_at": "2026-11-10T07:57:20.383Z",
-            "latency_ms": 2.657,
+            "started_at": "2026-11-10T19:51:55.490Z",
+            "finished_at": "2026-11-10T19:51:55.492Z",
+            "latency_ms": 1.464,
             "reproduction": {
               "method": "POST",
               "url": "http://127.0.0.1:8101/withdraw",
@@ -558,9 +558,9 @@
             "rule_reference": "Withdrawals exceeding the available balance must be rejected with HTTP 422 and approved=false.",
             "expectation_basis": "business_rule",
             "severity": "high",
-            "started_at": "2026-11-10T07:57:20.384Z",
-            "finished_at": "2026-11-10T07:57:20.385Z",
-            "latency_ms": 1.231,
+            "started_at": "2026-11-10T19:51:55.492Z",
+            "finished_at": "2026-11-10T19:51:55.493Z",
+            "latency_ms": 1.157,
             "reproduction": {
               "method": "POST",
               "url": "http://127.0.0.1:8101/withdraw",
@@ -577,12 +577,12 @@
       "condition": "corrected",
       "repetition": 2,
       "receipt": {
-        "run_id": "run-ba82dec43de24899846d29657298156f",
+        "run_id": "run-951107a858b64bf1aa31718db809fcf8",
         "source": "fixture",
         "model": "offline-fixture-not-AI",
         "plan_id": null,
-        "started_at": "2026-11-10T07:57:20.385Z",
-        "finished_at": "2026-11-10T07:57:20.393Z",
+        "started_at": "2026-11-10T19:51:55.493Z",
+        "finished_at": "2026-11-10T19:51:55.501Z",
         "results": [
           {
             "case_id": "happy-withdraw",
@@ -600,9 +600,9 @@
             "rule_reference": "#/paths/~1withdraw/post/responses/200",
             "expectation_basis": "openapi",
             "severity": "info",
-            "started_at": "2026-11-10T07:57:20.390Z",
-            "finished_at": "2026-11-10T07:57:20.392Z",
-            "latency_ms": 1.955,
+            "started_at": "2026-11-10T19:51:55.498Z",
+            "finished_at": "2026-11-10T19:51:55.500Z",
+            "latency_ms": 1.805,
             "reproduction": {
               "method": "POST",
               "url": "http://127.0.0.1:8101/withdraw",
@@ -628,9 +628,9 @@
             "rule_reference": "Withdrawals exceeding the available balance must be rejected with HTTP 422 and approved=false.",
             "expectation_basis": "business_rule",
             "severity": "high",
-            "started_at": "2026-11-10T07:57:20.392Z",
-            "finished_at": "2026-11-10T07:57:20.393Z",
-            "latency_ms": 1.093,
+            "started_at": "2026-11-10T19:51:55.500Z",
+            "finished_at": "2026-11-10T19:51:55.501Z",
+            "latency_ms": 1.2,
             "reproduction": {
               "method": "POST",
               "url": "http://127.0.0.1:8101/withdraw",
@@ -647,12 +647,12 @@
       "condition": "corrected",
       "repetition": 3,
       "receipt": {
-        "run_id": "run-89bb7221efa44285bddfa2b415477d42",
+        "run_id": "run-5485aad86897440a871f03503c5b070e",
         "source": "fixture",
         "model": "offline-fixture-not-AI",
         "plan_id": null,
-        "started_at": "2026-11-10T07:57:20.393Z",
-        "finished_at": "2026-11-10T07:57:20.401Z",
+        "started_at": "2026-11-10T19:51:55.501Z",
+        "finished_at": "2026-11-10T19:51:55.513Z",
         "results": [
           {
             "case_id": "happy-withdraw",
@@ -670,9 +670,9 @@
             "rule_reference": "#/paths/~1withdraw/post/responses/200",
             "expectation_basis": "openapi",
             "severity": "info",
-            "started_at": "2026-11-10T07:57:20.397Z",
-            "finished_at": "2026-11-10T07:57:20.399Z",
-            "latency_ms": 1.815,
+            "started_at": "2026-11-10T19:51:55.506Z",
+            "finished_at": "2026-11-10T19:51:55.512Z",
+            "latency_ms": 6.016,
             "reproduction": {
               "method": "POST",
               "url": "http://127.0.0.1:8101/withdraw",
@@ -698,9 +698,9 @@
             "rule_reference": "Withdrawals exceeding the available balance must be rejected with HTTP 422 and approved=false.",
             "expectation_basis": "business_rule",
             "severity": "high",
-            "started_at": "2026-11-10T07:57:20.399Z",
-            "finished_at": "2026-11-10T07:57:20.400Z",
-            "latency_ms": 1.088,
+            "started_at": "2026-11-10T19:51:55.512Z",
+            "finished_at": "2026-11-10T19:51:55.513Z",
+            "latency_ms": 1.314,
             "reproduction": {
               "method": "POST",
               "url": "http://127.0.0.1:8101/withdraw",

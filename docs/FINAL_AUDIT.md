@@ -31,3 +31,9 @@ Satu percobaan menjalankan `python scripts/run_demo.py --check` gagal karena rel
 ## Handoff
 
 Lihat API_CONTRACT.md untuk kontrak execute berbasis issued plan_id (breaking change dari cases bebas), README untuk reproduksi dan REMAINING_TASKS.md untuk langkah sisa kecil beserta acceptance. Cache plan lokal hilang saat restart. Filter rahasia konservatif bukan DLP lengkap. Tidak ada target umum, kredensial di payload, transaksi uang asli, atau klaim sertifikasi keamanan.
+
+## Pembaruan rilis offline — 11 November 2026 WIB
+
+Lihat [laporan tindak lanjut](WORK_2026-11-11_offline-release_REPORT.md) dan [breakdown B01–B27](RELEASE_PLAN.md). Suite sekarang **162 passed, 1 warning**; `scripts.verify_release` PASS termasuk actual widget/loopback kedua variant, setup/lint/dependency dan rekonsiliasi evaluasi. HTML actual evidence tersedia untuk buggy/corrected. Bug tambahan target-consent dan unbounded UI response buffering diperbaiki serta dites. Framework diselaraskan ke port 8501 dan issued plan_id.
+
+Chromium desktop/mobile capture dicoba tetapi gagal sebelum page terbuka (socket Operation not permitted). Bukan bukti visual PASS; screenshot/video/human QA tetap belum tersedia. Meta live tetap NOT RUN; tidak ada perubahan billing/key atau submission. Audit 10 November di atas tetap merupakan histori baseline, bukan status tes terbaru.

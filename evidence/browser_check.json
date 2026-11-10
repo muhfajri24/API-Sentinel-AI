@@ -1,0 +1,13 @@
+{
+  "checked_on": "2026-11-11",
+  "timezone": "Asia/Jakarta",
+  "status": "BLOCKED",
+  "command": "python -m scripts.capture_demo",
+  "observed_exit_code": 1,
+  "reason": "Chromium exited before opening a page: process singleton socket() failed with Operation not permitted in this execution environment.",
+  "screenshots_captured": false,
+  "video_captured": false,
+  "human_qa": "NOT_RUN",
+  "meta_inference": "NOT_RUN",
+  "alternative_completed": "Streamlit AppTest with actual socket-backed HTTP, buggy and corrected targets; evidence/local_smoke.json and evidence/corrected_smoke.json"
+}

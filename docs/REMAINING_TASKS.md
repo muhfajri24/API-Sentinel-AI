@@ -15,6 +15,10 @@ These are concrete uncompleted gates, not claims that an unavailable check passe
 | A09 | Resolve past event deadline before any submission claim | Explicit organizer/portal evidence of allowed submission timing | A08; page still lists 4 Nov ET as of 10 Nov |
 | A10 | Complete actual submission, if still permitted | Real portal confirmation and final artifact links; no guessed submitted state | A03–A09 |
 
+## Update — 11 November 2026
+
+Offline release follow-through: see RELEASE_PLAN.md B01–B27. Setup diagnosis, one-command full verification, corrected-target widget/HTTP smoke, HTML exports, target-consent invalidation and streaming response limit are complete. A06/A07 remain open: actual browser startup was attempted and blocked by an environment socket restriction; no footage exists. Meta live is still blocked by account/key/billing; no purchase was made. This replaces no historical evidence or official-submission gate.
+
 ## Extra details checked and fixed in this work
 
 - Later parser branch was missing from main; preserved and used as the baseline.

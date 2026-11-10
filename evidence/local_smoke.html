@@ -1,0 +1,50 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<title>API Sentinel — run-c9a5c3888bad43ff97921c924a92c494</title><style>
+body{font:16px/1.6 system-ui,sans-serif;max-width:1100px;margin:32px auto;padding:0 20px;color:#142638;background:#f4f7fb}
+article,header{background:white;border:1px solid #cbd5e1;border-radius:12px;padding:24px;margin:20px 0}
+h1,h2,h3{line-height:1.25}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf2f7;padding:16px;border-radius:8px}p{overflow-wrap:anywhere}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.label{font-weight:700;color:#704100}@media(max-width:650px){.grid{grid-template-columns:1fr}body{margin:12px auto}}
+@media print{body{background:white}article{break-inside:avoid}}</style>
+<header><h1>API Sentinel AI</h1><p class="label">Case source: fixture · Model: offline-fixture-not-AI</p>
+<p>OFFLINE FIXTURE — predefined cases; no AI inference.</p>
+<p>Run: run-c9a5c3888bad43ff97921c924a92c494<br>2026-11-10T19:51:50.800Z → 2026-11-10T19:51:50.818Z</p>
+<p>PASS: 1 · FAIL: 1 · ERROR: 0 · NOT_RUN: 0</p>
+<p>Local synthetic wallet. FAIL means an expectation differed from observation; it is not a security certification.</p></header>
+<article><h2>PASS · happy-withdraw</h2>
+<p>Expected status and JSON fields matched</p><p>Expected HTTP 200 · Observed HTTP 200</p>
+<div class="grid"><section><h3>Expected JSON subset</h3><pre>{
+  &quot;approved&quot;: true
+}</pre></section>
+<section><h3>Observed response</h3><pre>{
+  &quot;approved&quot;: true,
+  &quot;remaining&quot;: 50
+}</pre></section></div>
+<p>Basis: openapi · Proposed severity: info · Latency: 3.422 ms</p>
+<p>Reference: #/paths/~1withdraw/post/responses/200</p><h3>Reproduction</h3><pre>{
+  &quot;method&quot;: &quot;POST&quot;,
+  &quot;url&quot;: &quot;http://127.0.0.1:8101/withdraw&quot;,
+  &quot;json&quot;: {
+    &quot;balance&quot;: 100,
+    &quot;amount&quot;: 50
+  }
+}</pre>
+<p>2026-11-10T19:51:50.813Z → 2026-11-10T19:51:50.816Z</p></article><article><h2>FAIL · overdraft-rule</h2>
+<p>Observed status and/or JSON fields differed from the reviewed expectation</p><p>Expected HTTP 422 · Observed HTTP 200</p>
+<div class="grid"><section><h3>Expected JSON subset</h3><pre>{
+  &quot;approved&quot;: false
+}</pre></section>
+<section><h3>Observed response</h3><pre>{
+  &quot;approved&quot;: true,
+  &quot;remaining&quot;: -50
+}</pre></section></div>
+<p>Basis: business_rule · Proposed severity: high · Latency: 1.41 ms</p>
+<p>Reference: Withdrawals exceeding the available balance must be rejected with HTTP 422 and approved=false.</p><h3>Reproduction</h3><pre>{
+  &quot;method&quot;: &quot;POST&quot;,
+  &quot;url&quot;: &quot;http://127.0.0.1:8101/withdraw&quot;,
+  &quot;json&quot;: {
+    &quot;balance&quot;: 100,
+    &quot;amount&quot;: 150
+  }
+}</pre>
+<p>2026-11-10T19:51:50.816Z → 2026-11-10T19:51:50.817Z</p></article><footer>Standalone evidence snapshot. No scripts, external assets or network requests. Exported files can be edited; this is not a cryptographically signed audit.</footer></html>

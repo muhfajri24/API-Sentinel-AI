@@ -26,7 +26,7 @@ FastAPI /api/analyze, /api/generate, /api/execute
                            +--> Pydantic validation of plan
 ```
 
-Separate processes: test-target `backend.app.demo_api` on `127.0.0.1:8101`; API Sentinel controller `backend.app.main` on `127.0.0.1:8100`; Streamlit UI on port `8502`.
+Separate processes: test-target `backend.app.demo_api` on `127.0.0.1:8101`; API Sentinel controller `backend.app.main` on `127.0.0.1:8100`; Streamlit UI on port `8501`.
 
 ## Responsibility table
 
@@ -54,7 +54,7 @@ Separate processes: test-target `backend.app.demo_api` on `127.0.0.1:8101`; API 
 
 `POST /api/generate` input `{ "openapi": {...}, "business_rule": str }`; output `{ "source": "meta_live"|"fixture", "model": str, "cases": [...] }`.
 
-`POST /api/execute` input `{ "base_url": "http://127.0.0.1:8101", "authorized": true, "cases": [...] }`; output `{ "results": [{ "case_id": str, "status": "PASS"|"FAIL"|"ERROR", "expected_status": int, "actual_status": int|null, "actual_body": object|null, "reason": str }] }`.
+`POST /api/execute` input `{ "base_url": "http://127.0.0.1:8101", "plan_id": "<server-issued>", "reviewed": true, "authorized": true }`. Client-supplied cases/source/model are rejected. Output is a timestamped receipt with run_id, source/model and results (`PASS`, `FAIL`, `ERROR`, `NOT_RUN`); see [API_CONTRACT.md](API_CONTRACT.md).
 
 Case schema: `{ "case_id": str, "description": str, "method": "POST", "path": str, "request_body": object, "expected_status": int, "expected_json_subset": object, "rule_reference": str }`. One case must directly address a given rule. Do not invent undocumented behavior without flagging that expectation derives from user-supplied rule.
 
@@ -86,7 +86,7 @@ P2 after submission (out of MVP): CI, GitHub integration, broader OpenAPI suppor
 ## Practical technology
 
 - Python 3.11+, `fastapi`, `uvicorn`, `httpx`, `pydantic`, `openai`, `python-dotenv`, `pytest`, `streamlit`.
-- Local start uses three terminal commands (see README); **do not add containers or a separate database** unless blockers justify it.
+- Local fixture start uses `python -m scripts.run_demo` (see README); **do not add containers or a separate database** unless blockers justify it.
 
 ## Governance / release gate
 

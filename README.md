@@ -4,6 +4,12 @@
 
 The complete local fixture flow is implemented and exercised over actual loopback HTTP. **Meta live inference, the live AI comparison, final event rules/eligibility and official submission remain unverified.** See [final audit](docs/FINAL_AUDIT.md) and [remaining operator tasks](docs/REMAINING_TASKS.md). Source on `feature/complete-local-mvp` incorporates the existing parser work from `feature/openapi-analyzer`; existing branches/main are preserved.
 
+## Offline portfolio release — 11 November 2026
+
+No API key or payment method is required for the complete fixture demonstration. The live Meta gate stays blocked; do not purchase a subscription merely to reproduce this demo. Current work: [full requirement breakdown](docs/RELEASE_PLAN.md), [operations/troubleshooting](docs/OPERATIONS.md), and [release verification](evidence/release_check.json).
+
+Standalone reports built from actual local requests: [buggy target](evidence/local_smoke.html) / [corrected target](evidence/corrected_smoke.html). Download and open the HTML locally. Neither report claims AI inference.
+
 ## Quick start
 
 Python 3.11+ (tested on Python 3.12). From the repository root:
@@ -36,6 +42,7 @@ Changing inputs invalidates the old plan, consent and receipt. Failed generation
 ## Verification commands
 
 ```sh
+python -m scripts.doctor
 python -m pytest -q
 python -m scripts.run_demo --check
 python -m scripts.evaluate
@@ -47,6 +54,10 @@ python -m pip check
 - Evaluation: baseline and predefined fixture against the same buggy API and corrected control, three repetitions per condition. Raw observations and computed metrics are in [evaluation.json](evidence/evaluation.json). It is a one-bug illustration, not proof of AI superiority.
 - Live smoke: no call unless a real key and both `--live --confirm-credits` are supplied. Exit **2** means blocked/not run, not a successful live integration. Current [runtime evidence](evidence/meta_live_smoke.json) records absent credentials honestly.
 - For lint: `pip install -r requirements-dev.txt`, then `ruff check backend ui scripts tests`. `requirements.lock` captures the verified environment; use it for an exact rebuild on a compatible Python/platform.
+
+For one command that runs setup/lint/tests, actual widget+HTTP smoke on **both** target variants and fixture evaluation, install `requirements-dev.txt` then run `python -m scripts.verify_release`. This never calls Meta. To explore the corrected API interactively, stop the old launcher and run `python -m scripts.run_demo --variant corrected`.
+
+The dashboard also exports a standalone HTML report with escaped text and no external assets/scripts. Changing the target configuration invalidates consent as well as changing the rule/spec. Optional browser capture was attempted but Chromium startup is blocked by this execution environment; see [observed browser status](evidence/browser_check.json). No screenshot/video or human mobile QA is claimed.
 
 ## Live Meta mode
 
