@@ -1,5 +1,8 @@
 # Codex Task Board (execute ONE TASK at a time)
 
+> **10 November 2026:** The owner explicitly requested execution of the full earlier milestone breakdown, repeated crosschecks, commit and push. Tasks were completed in this authorized batch, preserving the existing parser branch. Current acceptance/evidence are in FINAL_AUDIT.md and per-task reports. Missing live credentials, manual capture and final event/portal gates remain explicitly open; the historical one-task starter text below is not evidence that those gates passed.
+
+
 Use this exact preamble for Codex: **"Read AGENTS.md and the docs. Execute ONLY task [ID]. Make a small diff, add tests, run pytest, return evidence. No unrelated features."**
 
 ## 00 — Rules and repository checks (Owner + ChatGPT)

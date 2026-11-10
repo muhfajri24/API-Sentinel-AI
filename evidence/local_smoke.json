@@ -1,0 +1,77 @@
+{
+  "checked_at": "2026-11-10T07:57:07.664Z",
+  "status": "PASS",
+  "transport": "actual loopback HTTP; UI widget flow via Streamlit AppTest",
+  "meta_inference": "NOT RUN",
+  "controller_health": {
+    "status": "ok",
+    "mode": "fixture"
+  },
+  "ui_http_status": 200,
+  "receipt": {
+    "run_id": "run-86b1e19caa5545978c6f8f4e30b00fd9",
+    "source": "fixture",
+    "model": "offline-fixture-not-AI",
+    "plan_id": "plan-57cd6ccd4a434133b7bff04707eb1e77",
+    "started_at": "2026-11-10T07:57:07.612Z",
+    "finished_at": "2026-11-10T07:57:07.636Z",
+    "results": [
+      {
+        "case_id": "happy-withdraw",
+        "status": "PASS",
+        "expected_status": 200,
+        "expected_json_subset": {
+          "approved": true
+        },
+        "actual_status": 200,
+        "actual_body": {
+          "approved": true,
+          "remaining": 50
+        },
+        "reason": "Expected status and JSON fields matched",
+        "rule_reference": "#/paths/~1withdraw/post/responses/200",
+        "expectation_basis": "openapi",
+        "severity": "info",
+        "started_at": "2026-11-10T07:57:07.628Z",
+        "finished_at": "2026-11-10T07:57:07.633Z",
+        "latency_ms": 5.254,
+        "reproduction": {
+          "method": "POST",
+          "url": "http://127.0.0.1:8101/withdraw",
+          "json": {
+            "balance": 100,
+            "amount": 50
+          }
+        }
+      },
+      {
+        "case_id": "overdraft-rule",
+        "status": "FAIL",
+        "expected_status": 422,
+        "expected_json_subset": {
+          "approved": false
+        },
+        "actual_status": 200,
+        "actual_body": {
+          "approved": true,
+          "remaining": -50
+        },
+        "reason": "Observed status and/or JSON fields differed from the reviewed expectation",
+        "rule_reference": "Withdrawals exceeding the available balance must be rejected with HTTP 422 and approved=false.",
+        "expectation_basis": "business_rule",
+        "severity": "high",
+        "started_at": "2026-11-10T07:57:07.633Z",
+        "finished_at": "2026-11-10T07:57:07.635Z",
+        "latency_ms": 2.163,
+        "reproduction": {
+          "method": "POST",
+          "url": "http://127.0.0.1:8101/withdraw",
+          "json": {
+            "balance": 100,
+            "amount": 150
+          }
+        }
+      }
+    ]
+  }
+}

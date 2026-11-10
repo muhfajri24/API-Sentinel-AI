@@ -1,5 +1,16 @@
 # Meta Global AI Developer Hackathon — Compliance Register
 
+## Recheck — 10 November 2026
+
+R0 remains **PENDING**. The official Meta event page still lists submission on 4 November at 9 PM ET and closing on 9 November. The public page still says final rules must be accepted by selected participants; the linked application-waiver page returned only a loading shell in this retrieval. No final rule text, section-level reuse eligibility, owner acceptance or portal submission was verified. Do not infer that the event is currently accepting submissions or that work completed on 10 November was on time.
+
+Sources checked: https://dev.meta.ai/events/global-hackathon ; https://events.cerebralvalley.ai/e/meta-ai-developer-hackathon ; https://cerebralvalley.ai/e/meta-ai-developer-hackathon/waiver . These public checks do not replace final official rules or an owner's account/eligibility confirmation.
+
+The implementation may continue as an engineering project. Submission gates are tracked in SUBMISSION_CHECKLIST.md and REMAINING_TASKS.md. Earlier 25 October notes below are historical.
+
+---
+
+
 **Last verified:** 2026-10-25 (Asia/Jakarta). **Status:** `R0 = PENDING`. Official Rules were not yet posted on the visible main event page when checked. Recheck when published and immediately before submission.
 
 | Item | Source / stated detail | Status | Project action |

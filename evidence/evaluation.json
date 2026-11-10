@@ -1,0 +1,724 @@
+{
+  "generated_at": "2026-11-10T07:57:20.616Z",
+  "transport": "actual loopback HTTP",
+  "scope": "illustrative single seeded overdraft bug; corrected control; not a representative benchmark",
+  "repeats_per_condition": 3,
+  "seeded_fault_count": 1,
+  "metrics": {
+    "baseline": {
+      "model": "handwritten-positive-only",
+      "cases_per_run": 1,
+      "validated_case_rate": 1.0,
+      "observed_verdict_counts": {
+        "PASS": 6,
+        "FAIL": 0,
+        "ERROR": 0,
+        "NOT_RUN": 0
+      },
+      "unique_seeded_faults_found": 0,
+      "control_false_positive_count": 0,
+      "mean_request_latency_ms": 4.845,
+      "model_cost": null
+    },
+    "fixture": {
+      "model": "offline-fixture-not-AI",
+      "cases_per_run": 2,
+      "validated_case_rate": 1.0,
+      "observed_verdict_counts": {
+        "PASS": 9,
+        "FAIL": 3,
+        "ERROR": 0,
+        "NOT_RUN": 0
+      },
+      "unique_seeded_faults_found": 1,
+      "control_false_positive_count": 0,
+      "mean_request_latency_ms": 1.81,
+      "model_cost": null
+    },
+    "meta_live": {
+      "status": "NOT_RUN",
+      "reason": "No configured, credit-confirmed, human-reviewed live plan was used."
+    }
+  },
+  "raw_runs": [
+    {
+      "condition": "buggy",
+      "repetition": 1,
+      "receipt": {
+        "run_id": "run-cd669a3fe92d45b8945bbfeae010a0fa",
+        "source": "baseline",
+        "model": "handwritten-positive-only",
+        "plan_id": null,
+        "started_at": "2026-11-10T07:57:19.800Z",
+        "finished_at": "2026-11-10T07:57:19.819Z",
+        "results": [
+          {
+            "case_id": "happy-withdraw",
+            "status": "PASS",
+            "expected_status": 200,
+            "expected_json_subset": {
+              "approved": true
+            },
+            "actual_status": 200,
+            "actual_body": {
+              "approved": true,
+              "remaining": 50
+            },
+            "reason": "Expected status and JSON fields matched",
+            "rule_reference": "#/paths/~1withdraw/post/responses/200",
+            "expectation_basis": "openapi",
+            "severity": "info",
+            "started_at": "2026-11-10T07:57:19.805Z",
+            "finished_at": "2026-11-10T07:57:19.819Z",
+            "latency_ms": 13.951,
+            "reproduction": {
+              "method": "POST",
+              "url": "http://127.0.0.1:8101/withdraw",
+              "json": {
+                "balance": 100,
+                "amount": 50
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "condition": "buggy",
+      "repetition": 2,
+      "receipt": {
+        "run_id": "run-ff880045c8f24eb4be46e671cc6c244f",
+        "source": "baseline",
+        "model": "handwritten-positive-only",
+        "plan_id": null,
+        "started_at": "2026-11-10T07:57:19.820Z",
+        "finished_at": "2026-11-10T07:57:19.827Z",
+        "results": [
+          {
+            "case_id": "happy-withdraw",
+            "status": "PASS",
+            "expected_status": 200,
+            "expected_json_subset": {
+              "approved": true
+            },
+            "actual_status": 200,
+            "actual_body": {
+              "approved": true,
+              "remaining": 50
+            },
+            "reason": "Expected status and JSON fields matched",
+            "rule_reference": "#/paths/~1withdraw/post/responses/200",
+            "expectation_basis": "openapi",
+            "severity": "info",
+            "started_at": "2026-11-10T07:57:19.825Z",
+            "finished_at": "2026-11-10T07:57:19.827Z",
+            "latency_ms": 2.344,
+            "reproduction": {
+              "method": "POST",
+              "url": "http://127.0.0.1:8101/withdraw",
+              "json": {
+                "balance": 100,
+                "amount": 50
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "condition": "buggy",
+      "repetition": 3,
+      "receipt": {
+        "run_id": "run-642675bbe5594036a94da889396bd0a4",
+        "source": "baseline",
+        "model": "handwritten-positive-only",
+        "plan_id": null,
+        "started_at": "2026-11-10T07:57:19.828Z",
+        "finished_at": "2026-11-10T07:57:19.836Z",
+        "results": [
+          {
+            "case_id": "happy-withdraw",
+            "status": "PASS",
+            "expected_status": 200,
+            "expected_json_subset": {
+              "approved": true
+            },
+            "actual_status": 200,
+            "actual_body": {
+              "approved": true,
+              "remaining": 50
+            },
+            "reason": "Expected status and JSON fields matched",
+            "rule_reference": "#/paths/~1withdraw/post/responses/200",
+            "expectation_basis": "openapi",
+            "severity": "info",
+            "started_at": "2026-11-10T07:57:19.834Z",
+            "finished_at": "2026-11-10T07:57:19.836Z",
+            "latency_ms": 2.121,
+            "reproduction": {
+              "method": "POST",
+              "url": "http://127.0.0.1:8101/withdraw",
+              "json": {
+                "balance": 100,
+                "amount": 50
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "condition": "buggy",
+      "repetition": 1,
+      "receipt": {
+        "run_id": "run-8f0a63a9c6614ddd80bbdf8500f1f8a7",
+        "source": "fixture",
+        "model": "offline-fixture-not-AI",
+        "plan_id": null,
+        "started_at": "2026-11-10T07:57:19.836Z",
+        "finished_at": "2026-11-10T07:57:19.847Z",
+        "results": [
+          {
+            "case_id": "happy-withdraw",
+            "status": "PASS",
+            "expected_status": 200,
+            "expected_json_subset": {
+              "approved": true
+            },
+            "actual_status": 200,
+            "actual_body": {
+              "approved": true,
+              "remaining": 50
+            },
+            "reason": "Expected status and JSON fields matched",
+            "rule_reference": "#/paths/~1withdraw/post/responses/200",
+            "expectation_basis": "openapi",
+            "severity": "info",
+            "started_at": "2026-11-10T07:57:19.841Z",
+            "finished_at": "2026-11-10T07:57:19.846Z",
+            "latency_ms": 4.547,
+            "reproduction": {
+              "method": "POST",
+              "url": "http://127.0.0.1:8101/withdraw",
+              "json": {
+                "balance": 100,
+                "amount": 50
+              }
+            }
+          },
+          {
+            "case_id": "overdraft-rule",
+            "status": "FAIL",
+            "expected_status": 422,
+            "expected_json_subset": {
+              "approved": false
+            },
+            "actual_status": 200,
+            "actual_body": {
+              "approved": true,
+              "remaining": -50
+            },
+            "reason": "Observed status and/or JSON fields differed from the reviewed expectation",
+            "rule_reference": "Withdrawals exceeding the available balance must be rejected with HTTP 422 and approved=false.",
+            "expectation_basis": "business_rule",
+            "severity": "high",
+            "started_at": "2026-11-10T07:57:19.846Z",
+            "finished_at": "2026-11-10T07:57:19.847Z",
+            "latency_ms": 1.15,
+            "reproduction": {
+              "method": "POST",
+              "url": "http://127.0.0.1:8101/withdraw",
+              "json": {
+                "balance": 100,
+                "amount": 150
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "condition": "buggy",
+      "repetition": 2,
+      "receipt": {
+        "run_id": "run-27e8d797b0d14e09b7a2f4c627083b02",
+        "source": "fixture",
+        "model": "offline-fixture-not-AI",
+        "plan_id": null,
+        "started_at": "2026-11-10T07:57:19.847Z",
+        "finished_at": "2026-11-10T07:57:19.855Z",
+        "results": [
+          {
+            "case_id": "happy-withdraw",
+            "status": "PASS",
+            "expected_status": 200,
+            "expected_json_subset": {
+              "approved": true
+            },
+            "actual_status": 200,
+            "actual_body": {
+              "approved": true,
+              "remaining": 50
+            },
+            "reason": "Expected status and JSON fields matched",
+            "rule_reference": "#/paths/~1withdraw/post/responses/200",
+            "expectation_basis": "openapi",
+            "severity": "info",
+            "started_at": "2026-11-10T07:57:19.852Z",
+            "finished_at": "2026-11-10T07:57:19.854Z",
+            "latency_ms": 1.858,
+            "reproduction": {
+              "method": "POST",
+              "url": "http://127.0.0.1:8101/withdraw",
+              "json": {
+                "balance": 100,
+                "amount": 50
+              }
+            }
+          },
+          {
+            "case_id": "overdraft-rule",
+            "status": "FAIL",
+            "expected_status": 422,
+            "expected_json_subset": {
+              "approved": false
+            },
+            "actual_status": 200,
+            "actual_body": {
+              "approved": true,
+              "remaining": -50
+            },
+            "reason": "Observed status and/or JSON fields differed from the reviewed expectation",
+            "rule_reference": "Withdrawals exceeding the available balance must be rejected with HTTP 422 and approved=false.",
+            "expectation_basis": "business_rule",
+            "severity": "high",
+            "started_at": "2026-11-10T07:57:19.854Z",
+            "finished_at": "2026-11-10T07:57:19.855Z",
+            "latency_ms": 1.004,
+            "reproduction": {
+              "method": "POST",
+              "url": "http://127.0.0.1:8101/withdraw",
+              "json": {
+                "balance": 100,
+                "amount": 150
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "condition": "buggy",
+      "repetition": 3,
+      "receipt": {
+        "run_id": "run-5f68984f4eeb4107a49886685698d51a",
+        "source": "fixture",
+        "model": "offline-fixture-not-AI",
+        "plan_id": null,
+        "started_at": "2026-11-10T07:57:19.856Z",
+        "finished_at": "2026-11-10T07:57:19.863Z",
+        "results": [
+          {
+            "case_id": "happy-withdraw",
+            "status": "PASS",
+            "expected_status": 200,
+            "expected_json_subset": {
+              "approved": true
+            },
+            "actual_status": 200,
+            "actual_body": {
+              "approved": true,
+              "remaining": 50
+            },
+            "reason": "Expected status and JSON fields matched",
+            "rule_reference": "#/paths/~1withdraw/post/responses/200",
+            "expectation_basis": "openapi",
+            "severity": "info",
+            "started_at": "2026-11-10T07:57:19.860Z",
+            "finished_at": "2026-11-10T07:57:19.862Z",
+            "latency_ms": 2.23,
+            "reproduction": {
+              "method": "POST",
+              "url": "http://127.0.0.1:8101/withdraw",
+              "json": {
+                "balance": 100,
+                "amount": 50
+              }
+            }
+          },
+          {
+            "case_id": "overdraft-rule",
+            "status": "FAIL",
+            "expected_status": 422,
+            "expected_json_subset": {
+              "approved": false
+            },
+            "actual_status": 200,
+            "actual_body": {
+              "approved": true,
+              "remaining": -50
+            },
+            "reason": "Observed status and/or JSON fields differed from the reviewed expectation",
+            "rule_reference": "Withdrawals exceeding the available balance must be rejected with HTTP 422 and approved=false.",
+            "expectation_basis": "business_rule",
+            "severity": "high",
+            "started_at": "2026-11-10T07:57:19.862Z",
+            "finished_at": "2026-11-10T07:57:19.863Z",
+            "latency_ms": 1.092,
+            "reproduction": {
+              "method": "POST",
+              "url": "http://127.0.0.1:8101/withdraw",
+              "json": {
+                "balance": 100,
+                "amount": 150
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "condition": "corrected",
+      "repetition": 1,
+      "receipt": {
+        "run_id": "run-02a8b23ffa674c4ca4f1d3af142976fb",
+        "source": "baseline",
+        "model": "handwritten-positive-only",
+        "plan_id": null,
+        "started_at": "2026-11-10T07:57:20.348Z",
+        "finished_at": "2026-11-10T07:57:20.360Z",
+        "results": [
+          {
+            "case_id": "happy-withdraw",
+            "status": "PASS",
+            "expected_status": 200,
+            "expected_json_subset": {
+              "approved": true
+            },
+            "actual_status": 200,
+            "actual_body": {
+              "approved": true,
+              "remaining": 50
+            },
+            "reason": "Expected status and JSON fields matched",
+            "rule_reference": "#/paths/~1withdraw/post/responses/200",
+            "expectation_basis": "openapi",
+            "severity": "info",
+            "started_at": "2026-11-10T07:57:20.353Z",
+            "finished_at": "2026-11-10T07:57:20.360Z",
+            "latency_ms": 6.123,
+            "reproduction": {
+              "method": "POST",
+              "url": "http://127.0.0.1:8101/withdraw",
+              "json": {
+                "balance": 100,
+                "amount": 50
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "condition": "corrected",
+      "repetition": 2,
+      "receipt": {
+        "run_id": "run-f064194160c244e1831605e481b59912",
+        "source": "baseline",
+        "model": "handwritten-positive-only",
+        "plan_id": null,
+        "started_at": "2026-11-10T07:57:20.360Z",
+        "finished_at": "2026-11-10T07:57:20.368Z",
+        "results": [
+          {
+            "case_id": "happy-withdraw",
+            "status": "PASS",
+            "expected_status": 200,
+            "expected_json_subset": {
+              "approved": true
+            },
+            "actual_status": 200,
+            "actual_body": {
+              "approved": true,
+              "remaining": 50
+            },
+            "reason": "Expected status and JSON fields matched",
+            "rule_reference": "#/paths/~1withdraw/post/responses/200",
+            "expectation_basis": "openapi",
+            "severity": "info",
+            "started_at": "2026-11-10T07:57:20.365Z",
+            "finished_at": "2026-11-10T07:57:20.368Z",
+            "latency_ms": 2.803,
+            "reproduction": {
+              "method": "POST",
+              "url": "http://127.0.0.1:8101/withdraw",
+              "json": {
+                "balance": 100,
+                "amount": 50
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "condition": "corrected",
+      "repetition": 3,
+      "receipt": {
+        "run_id": "run-5e5ccca5f3394ca7a806898705ef9ee0",
+        "source": "baseline",
+        "model": "handwritten-positive-only",
+        "plan_id": null,
+        "started_at": "2026-11-10T07:57:20.369Z",
+        "finished_at": "2026-11-10T07:57:20.375Z",
+        "results": [
+          {
+            "case_id": "happy-withdraw",
+            "status": "PASS",
+            "expected_status": 200,
+            "expected_json_subset": {
+              "approved": true
+            },
+            "actual_status": 200,
+            "actual_body": {
+              "approved": true,
+              "remaining": 50
+            },
+            "reason": "Expected status and JSON fields matched",
+            "rule_reference": "#/paths/~1withdraw/post/responses/200",
+            "expectation_basis": "openapi",
+            "severity": "info",
+            "started_at": "2026-11-10T07:57:20.374Z",
+            "finished_at": "2026-11-10T07:57:20.375Z",
+            "latency_ms": 1.726,
+            "reproduction": {
+              "method": "POST",
+              "url": "http://127.0.0.1:8101/withdraw",
+              "json": {
+                "balance": 100,
+                "amount": 50
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "condition": "corrected",
+      "repetition": 1,
+      "receipt": {
+        "run_id": "run-f81638fcd84f4dc9a3bed016af1c4f76",
+        "source": "fixture",
+        "model": "offline-fixture-not-AI",
+        "plan_id": null,
+        "started_at": "2026-11-10T07:57:20.376Z",
+        "finished_at": "2026-11-10T07:57:20.385Z",
+        "results": [
+          {
+            "case_id": "happy-withdraw",
+            "status": "PASS",
+            "expected_status": 200,
+            "expected_json_subset": {
+              "approved": true
+            },
+            "actual_status": 200,
+            "actual_body": {
+              "approved": true,
+              "remaining": 50
+            },
+            "reason": "Expected status and JSON fields matched",
+            "rule_reference": "#/paths/~1withdraw/post/responses/200",
+            "expectation_basis": "openapi",
+            "severity": "info",
+            "started_at": "2026-11-10T07:57:20.381Z",
+            "finished_at": "2026-11-10T07:57:20.383Z",
+            "latency_ms": 2.657,
+            "reproduction": {
+              "method": "POST",
+              "url": "http://127.0.0.1:8101/withdraw",
+              "json": {
+                "balance": 100,
+                "amount": 50
+              }
+            }
+          },
+          {
+            "case_id": "overdraft-rule",
+            "status": "PASS",
+            "expected_status": 422,
+            "expected_json_subset": {
+              "approved": false
+            },
+            "actual_status": 422,
+            "actual_body": {
+              "approved": false,
+              "remaining": 100
+            },
+            "reason": "Expected status and JSON fields matched",
+            "rule_reference": "Withdrawals exceeding the available balance must be rejected with HTTP 422 and approved=false.",
+            "expectation_basis": "business_rule",
+            "severity": "high",
+            "started_at": "2026-11-10T07:57:20.384Z",
+            "finished_at": "2026-11-10T07:57:20.385Z",
+            "latency_ms": 1.231,
+            "reproduction": {
+              "method": "POST",
+              "url": "http://127.0.0.1:8101/withdraw",
+              "json": {
+                "balance": 100,
+                "amount": 150
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "condition": "corrected",
+      "repetition": 2,
+      "receipt": {
+        "run_id": "run-ba82dec43de24899846d29657298156f",
+        "source": "fixture",
+        "model": "offline-fixture-not-AI",
+        "plan_id": null,
+        "started_at": "2026-11-10T07:57:20.385Z",
+        "finished_at": "2026-11-10T07:57:20.393Z",
+        "results": [
+          {
+            "case_id": "happy-withdraw",
+            "status": "PASS",
+            "expected_status": 200,
+            "expected_json_subset": {
+              "approved": true
+            },
+            "actual_status": 200,
+            "actual_body": {
+              "approved": true,
+              "remaining": 50
+            },
+            "reason": "Expected status and JSON fields matched",
+            "rule_reference": "#/paths/~1withdraw/post/responses/200",
+            "expectation_basis": "openapi",
+            "severity": "info",
+            "started_at": "2026-11-10T07:57:20.390Z",
+            "finished_at": "2026-11-10T07:57:20.392Z",
+            "latency_ms": 1.955,
+            "reproduction": {
+              "method": "POST",
+              "url": "http://127.0.0.1:8101/withdraw",
+              "json": {
+                "balance": 100,
+                "amount": 50
+              }
+            }
+          },
+          {
+            "case_id": "overdraft-rule",
+            "status": "PASS",
+            "expected_status": 422,
+            "expected_json_subset": {
+              "approved": false
+            },
+            "actual_status": 422,
+            "actual_body": {
+              "approved": false,
+              "remaining": 100
+            },
+            "reason": "Expected status and JSON fields matched",
+            "rule_reference": "Withdrawals exceeding the available balance must be rejected with HTTP 422 and approved=false.",
+            "expectation_basis": "business_rule",
+            "severity": "high",
+            "started_at": "2026-11-10T07:57:20.392Z",
+            "finished_at": "2026-11-10T07:57:20.393Z",
+            "latency_ms": 1.093,
+            "reproduction": {
+              "method": "POST",
+              "url": "http://127.0.0.1:8101/withdraw",
+              "json": {
+                "balance": 100,
+                "amount": 150
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "condition": "corrected",
+      "repetition": 3,
+      "receipt": {
+        "run_id": "run-89bb7221efa44285bddfa2b415477d42",
+        "source": "fixture",
+        "model": "offline-fixture-not-AI",
+        "plan_id": null,
+        "started_at": "2026-11-10T07:57:20.393Z",
+        "finished_at": "2026-11-10T07:57:20.401Z",
+        "results": [
+          {
+            "case_id": "happy-withdraw",
+            "status": "PASS",
+            "expected_status": 200,
+            "expected_json_subset": {
+              "approved": true
+            },
+            "actual_status": 200,
+            "actual_body": {
+              "approved": true,
+              "remaining": 50
+            },
+            "reason": "Expected status and JSON fields matched",
+            "rule_reference": "#/paths/~1withdraw/post/responses/200",
+            "expectation_basis": "openapi",
+            "severity": "info",
+            "started_at": "2026-11-10T07:57:20.397Z",
+            "finished_at": "2026-11-10T07:57:20.399Z",
+            "latency_ms": 1.815,
+            "reproduction": {
+              "method": "POST",
+              "url": "http://127.0.0.1:8101/withdraw",
+              "json": {
+                "balance": 100,
+                "amount": 50
+              }
+            }
+          },
+          {
+            "case_id": "overdraft-rule",
+            "status": "PASS",
+            "expected_status": 422,
+            "expected_json_subset": {
+              "approved": false
+            },
+            "actual_status": 422,
+            "actual_body": {
+              "approved": false,
+              "remaining": 100
+            },
+            "reason": "Expected status and JSON fields matched",
+            "rule_reference": "Withdrawals exceeding the available balance must be rejected with HTTP 422 and approved=false.",
+            "expectation_basis": "business_rule",
+            "severity": "high",
+            "started_at": "2026-11-10T07:57:20.399Z",
+            "finished_at": "2026-11-10T07:57:20.400Z",
+            "latency_ms": 1.088,
+            "reproduction": {
+              "method": "POST",
+              "url": "http://127.0.0.1:8101/withdraw",
+              "json": {
+                "balance": 100,
+                "amount": 150
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Baseline deliberately tests only the documented positive case.",
+    "Fixture cases are predefined, not AI generation.",
+    "Validity rate is conditional on the accepted plan; invalid model generations were not sampled.",
+    "The same synthetic API/inputs are reused; no real-world effectiveness claim.",
+    "Latency is local observation, not a provider/production performance benchmark."
+  ]
+}
